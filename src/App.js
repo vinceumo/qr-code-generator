@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.scss';
+import QrCodeOutput from "./Components/QrCodeOutput";
+import QrCodeInputData from "./Components/QrCodeInputData";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { msg: "hello world" };
+  }
+
+  setQrCodeMsg = (msg) => {
+    this.setState({ msg });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <QrCodeInputData text={this.state.msg} setQrCodeMsg={this.setQrCodeMsg} />
+        <QrCodeOutput data={this.state.msg} />
+      </div>
+    );
+  }
 }
 
 export default App;
