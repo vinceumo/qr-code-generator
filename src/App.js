@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.scss';
-import QrCodeOutput from "./Components/QrCodeOutput";
-import QrCodeInputData from "./Components/QrCodeInputData";
+import QrCodeOutput from "./Components/QrCodeOutputSvg";
+import QrCodeInputData from "./Components/QrCodeInputData/index";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { msg: "hello world" };
+    this.state = { msg: "" };
   }
 
   setQrCodeMsg = (msg) => {
