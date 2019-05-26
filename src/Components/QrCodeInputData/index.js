@@ -8,12 +8,25 @@ class QrCodeInputData extends React.Component {
     super(props);
     this.radios = ["text", "url", "contact"];
     this.state = {
-      inputToRender: "text",
+      inputToRender: "contact",
       msg: "",
       inputValues: {
         text: "",
         url: "",
-        contact: {}
+        contact: {
+          fullName: {
+            label: "Full Name",
+            inputType: "text",
+            vCardType: "FN",
+            value: ""
+          },
+          Organisation: {
+            label: "Organisation",
+            inputType: "text",
+            vCardType: "ORG",
+            value: ""
+          }
+        }
       }
     };
   }
@@ -55,7 +68,7 @@ class QrCodeInputData extends React.Component {
           />
         );
       case "contact":
-        return <ContactInput/>;
+        return <ContactInput inputs={this.state.inputValues.contact} />;
       default:
         return this.textInput();
     }
@@ -65,8 +78,8 @@ class QrCodeInputData extends React.Component {
     return (
       <div>
         <div>
-          {this.radios.map(radio => (
-            <label htmlFor={`radio${radio}`}>
+          {this.radios.map((radio, i) => (
+            <label key={i} htmlFor={`radio${radio}`}>
               <input
                 type="radio"
                 value={radio}

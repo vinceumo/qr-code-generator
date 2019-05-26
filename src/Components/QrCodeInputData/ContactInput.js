@@ -3,24 +3,18 @@ import React from "react";
 function ContactInput(props) {
   return (
     <div>
-      <div>
-        <label htmlFor="contactContentInputName">Full Name: </label>
-        <input
-          type="text"
-          name="contactQrContent"
-          id="contactContentInputName"
-          data-type="FN"
-        />
-      </div>
-      <div>
-        <label htmlFor="contactContentInputOrg">Organization: </label>
-        <input
-          type="text"
-          name="contactQrContent"
-          id="contactContentInputOrg"
-          data-type="ORG"
-        />
-      </div>
+      {Object.keys(props.inputs).map((key, i) => (
+        <div key={i}>
+          <label htmlFor="contactContentInputName">
+            {props.inputs[key].label}:
+          </label>
+          <input
+            type={props.inputs[key].inputType}
+            name="contactQrContent"
+            id={`contactContentInput${props.inputs[key].vCardType}`}
+          />
+        </div>
+      ))}
     </div>
   );
 }
