@@ -1,0 +1,9 @@
+@import "./styles/global-style-resources";
+
+.app-container {
+  @include min(bp(sm)) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: spacer(3);
+  }
+}

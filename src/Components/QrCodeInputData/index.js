@@ -1,18 +1,19 @@
-import React from 'react'
+import React from 'react';
 import ContactInput from "./ContactInput";
-import TextInput from './TextInput'
-import UrlInput from './UrlInput'
+import TextInput from './TextInput';
+import UrlInput from './UrlInput';
+import './index.scss';
 
 class QrCodeInputData extends React.Component {
   constructor(props) {
     super(props);
     this.radios = ["text", "url", "contact"];
     this.state = {
-      inputToRender: "contact",
+      inputToRender: "text",
       msg: "",
       inputValues: {
         text: "",
-        url: "",
+        url: "https://",
         contact: {
           fullName: {
             label: "Full Name",
@@ -117,9 +118,13 @@ class QrCodeInputData extends React.Component {
   render() {
     return (
       <div>
-        <div>
+        <div className="input-picker has-mb-4">
           {this.radios.map((radio, i) => (
-            <label key={i} htmlFor={`radio${radio}`}>
+            <label
+              key={i}
+              className="input-label"
+              htmlFor={`radio${radio}`}
+            >
               <input
                 type="radio"
                 value={radio}

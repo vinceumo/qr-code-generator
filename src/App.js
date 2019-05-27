@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import Header from './Components/Header'
 import QrCodeOutput from "./Components/QrCodeOutputSvg";
 import QrCodeInputData from "./Components/QrCodeInputData/index";
 
@@ -15,9 +16,15 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <QrCodeInputData text={this.state.msg} SetQrCodeMsg={this.SetQrCodeMsg} />
-        <QrCodeOutput data={this.state.msg} />
+      <div>
+        <Header />
+        <div className="container app-container">
+          <QrCodeInputData
+            text={this.state.msg}
+            SetQrCodeMsg={this.SetQrCodeMsg}
+          />
+          <QrCodeOutput data={this.state.msg} />
+        </div>
       </div>
     );
   }
