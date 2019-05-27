@@ -8,8 +8,8 @@ function UrlInput(props) {
         type="url"
         name="urlQrContent"
         id="urlQrContentInput"
-        value={props.currentValue}
-        onChange={e => props.setMsg(e.target.value, "url")}
+        defaultValue={props.currentValue}
+        onChange={e => props.SetMsg(e.target.value, "url")}
       />
     </div>
   );

@@ -9,14 +9,14 @@ class App extends React.Component {
     this.state = { msg: "" };
   }
 
-  setQrCodeMsg = (msg) => {
+  SetQrCodeMsg = (msg) => {
     this.setState({ msg });
   };
 
   render() {
     return (
       <div className="App">
-        <QrCodeInputData text={this.state.msg} setQrCodeMsg={this.setQrCodeMsg} />
+        <QrCodeInputData text={this.state.msg} SetQrCodeMsg={this.SetQrCodeMsg} />
         <QrCodeOutput data={this.state.msg} />
       </div>
     );
