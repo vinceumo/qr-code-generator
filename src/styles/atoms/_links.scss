@@ -1,0 +1,24 @@
+a {
+  color: color(dark);
+  text-decoration: underline;
+}
+
+a[href^="http://"],
+a[href^="https://"]{
+  &:not([href*="example.com"]):after{
+    content: "\01F517";
+    font-size: 0.8rem;
+  }
+}
+
+@each $name, $theme in $colors {
+  .has-bg-#{$name} {
+    a {
+      color: color($name, contrast);
+
+      &::before {
+        background-color: color($name, contrast);
+      }
+    }
+  }
+}
