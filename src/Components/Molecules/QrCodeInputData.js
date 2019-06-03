@@ -1,8 +1,8 @@
 import React from 'react';
 import ContactInput from "./ContactInput";
 import TextInput from './TextInput';
-import UrlInput from './UrlInput';
-import './index.scss';
+import UrlInput from "./UrlInput";
+import "./QrCodeInputData.scss";
 
 class QrCodeInputData extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
-@import "./styles/global-style-resources";
+@import "../../styles/global-style-resources";
 
-.app-container {
+.qrcodegen-container {
   @include min(bp(sm)) {
     display: grid;
     grid-template-columns: 1fr 1fr;
