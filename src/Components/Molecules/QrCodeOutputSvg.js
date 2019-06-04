@@ -1,55 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import qrcode from "qrcode-generator-es6";
 
-class QrCodeOutput extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      qrCode: null,
-      svgUrl: null
-    };
+function QrCodeOutput(props) {
+  const [qrCode, setQrCode] = useState(null);
+  const [svgUrl, setSvgUrl] = useState(null);
+
+  function CreateQRCode() {
+    const qrCodeData = new qrcode(0, "H");
+    qrCodeData.addData(props.data);
+    qrCodeData.make();
+    setQrCode(qrCodeData);
+    CreateSvgUrl(qrCodeData);
   }
 
-  CreateQRCode = () => {
-    const qrCode = new qrcode(0, "H");
-    qrCode.addData(this.props.data);
-    qrCode.make();
-    this.setState({ qrCode });
-    this.CreateSvgUrl(qrCode);
-  };
-
-  CreateSvgUrl(svg) {
+  function CreateSvgUrl(svg) {
     const svgBlob = new Blob([svg.createSvgTag({})], {
       type: "image/svg+xml;charset=utf-8"
     });
-    const svgUrl = URL.createObjectURL(svgBlob);
-    this.setState({ svgUrl });
+    const svgUrlData = URL.createObjectURL(svgBlob);
+    setSvgUrl(svgUrlData);
   }
 
-  componentWillMount() {
-    this.CreateQRCode();
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.data !== this.props.data) {
-      this.CreateQRCode();
+  function renderQrCode() {
+    if (qrCode) {
+      return (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${qrCode.createSvgTag({})}`
+          }}
+        />
+      );
+    } else {
+      return (
+        <div/>
+      )
     }
   }
 
-  render() {
-    return (
-      <div>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `${this.state.qrCode.createSvgTag({})}`
-          }}
-        />
-        <a href={this.state.svgUrl} download="qrCode" className="btn is-dark">
-          Download
-        </a>
-      </div>
-    );
-  }
+  useEffect(() => {
+    CreateQRCode();
+  });
+
+  return (
+    <div>
+      {renderQrCode()}
+      <a href={svgUrl} download="qrCode" className="btn is-dark">
+        Download
+      </a>
+    </div>
+  );
 }
 
 export default QrCodeOutput;
