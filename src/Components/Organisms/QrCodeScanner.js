@@ -43,7 +43,6 @@ function QrCodeScanner() {
     console.log(code);
 
     if (code) {
-      console.log(code.data);
       setMsg(code.data);
     }
     requestAnimationFrame(checkFrame);
@@ -59,7 +58,12 @@ function QrCodeScanner() {
   }
 
   useEffect(() => {
-    navigator.getUserMedia(constraints, successStream, failureStream);
+    navigator.mediaDevices.getUserMedia(constraints)
+    .then((stream) => {
+      successStream(stream);
+    }).catch((error) => {
+      failureStream(error);
+    });
   });
 
   return (
