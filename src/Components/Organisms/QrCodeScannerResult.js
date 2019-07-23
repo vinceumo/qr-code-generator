@@ -1,8 +1,8 @@
 import React from "react";
 
-function QrCodeScannerResult() {
+function QrCodeScannerResult(props) {
     return (
-        <p>Hello2</p>
+        <p>{props.location.state.msg}</p>
       );
 }
 

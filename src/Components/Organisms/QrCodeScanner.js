@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef } from "react";
 import jsQR from "jsqr";
 
-function QrCodeScanner() {
-  const [msg, setMsg] = useState("");
+function QrCodeScanner(props) {
+  //const [msg, setMsg] = useState("");
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const constraints = { audio: false, video: true };
@@ -13,39 +13,44 @@ function QrCodeScanner() {
       canvas = canvasRef.current.getContext("2d");
     }
 
-    canvasRef.current.height = videoRef.current.clientHeight;
-    canvasRef.current.width = videoRef.current.clientWidth;
-
-    canvas.drawImage(
-      videoRef.current,
-      0,
-      0,
-      canvasRef.current.width,
-      canvasRef.current.height
-    );
-
-    var image = canvas.getImageData(
-      0,
-      0,
-      canvasRef.current.width,
-      canvasRef.current.height
-    );
-
-    return image;
+    if(videoRef.current) {
+      canvasRef.current.height = videoRef.current.clientHeight;
+      canvasRef.current.width = videoRef.current.clientWidth;
+  
+      canvas.drawImage(
+        videoRef.current,
+        0,
+        0,
+        canvasRef.current.width,
+        canvasRef.current.height
+      );
+  
+      var image = canvas.getImageData(
+        0,
+        0,
+        canvasRef.current.width,
+        canvasRef.current.height
+      );
+  
+      return image;
+    }
   }
 
   function checkFrame() {
     const image = imageData();
-    var code = jsQR(image.data, image.width, image.height, {
-      inversionAttempts: "dontInvert"
-    });
 
-    console.log(code);
-
-    if (code) {
-      setMsg(code.data);
+    if(image) {
+      var code = jsQR(image.data, image.width, image.height, {
+        inversionAttempts: "dontInvert"
+      });
+  
+      if (code) {
+        //setMsg(code.data);
+        console.log(code.data);
+        props.history.push({pathname: '/scanner-result', state: { msg: code.data}});
+      }
+      requestAnimationFrame(checkFrame);
     }
-    requestAnimationFrame(checkFrame);
   }
 
   function successStream(stream) {
@@ -70,7 +75,6 @@ function QrCodeScanner() {
     <div>
       <canvas ref={canvasRef} hidden id="canvas" />
       <video ref={videoRef} muted playsInline autoPlay />
-      <p>{ msg }</p>
     </div>
   );
 }

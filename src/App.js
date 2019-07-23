@@ -4,6 +4,7 @@ import AppHeader from "./Components/Organisms/AppHeader";
 import AppNav from "./Components/Organisms/AppNav";
 import QrCodeGenerator from "./Components/Organisms/QrCodeGenerator"
 import QrCodeScanner from "./Components/Organisms/QrCodeScanner";
+import QrCodeScannerResult from "./Components/Organisms/QrCodeScannerResult";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <AppNav/>
         <Route path="/" exact component={QrCodeGenerator} />
         <Route path="/scanner/" component={QrCodeScanner} />
+        <Route path="/scanner-result" component={QrCodeScannerResult} />
       </div>
     </Router>
   );
