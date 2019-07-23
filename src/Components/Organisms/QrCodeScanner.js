@@ -1,8 +1,7 @@
-import React, {useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import jsQR from "jsqr";
 
 function QrCodeScanner(props) {
-  //const [msg, setMsg] = useState("");
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const constraints = { audio: false, video: true };
@@ -45,8 +44,6 @@ function QrCodeScanner(props) {
       });
   
       if (code) {
-        //setMsg(code.data);
-        console.log(code.data);
         props.history.push({pathname: '/scanner-result', state: { msg: code.data}});
       }
       requestAnimationFrame(checkFrame);
