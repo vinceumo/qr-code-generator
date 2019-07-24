@@ -14,7 +14,7 @@ button {
     &.is-#{$name} {
       background-color: color($name, base);
       color: color($name, contrast);
-      border: 2px solid color($name, contrast);
+      border: 2px solid color($name, base);
       transition: all 0.3s ease-in-out;
 
       &:hover, &:focus {

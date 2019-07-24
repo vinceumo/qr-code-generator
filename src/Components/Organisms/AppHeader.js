@@ -1,16 +1,13 @@
 import React from "react";
 
-function Header() {
+function AppHeader() {
   return (
     <div className="has-bg-dark">
-      <div className="container has-py-2 has-mb-3">
-        <h1>QR Code Generator</h1>
-        <p>
-          <a href="https://github.com/vinceumo/qr-code-generator">See project on github</a>
-        </p>
+      <div className="container has-py-1">
+        <h1 className="has-my-1">QR Code</h1>
       </div>
     </div>
   );
 }
 
-export default Header;
+export default AppHeader;

@@ -44,6 +44,7 @@ function QrCodeScannerResult(props) {
                 </a>
               </>
             );
+            // eslint-disable-next-line
             break;
           case "url":
             return (
@@ -54,6 +55,7 @@ function QrCodeScannerResult(props) {
                 </a>
               </>
             );
+            // eslint-disable-next-line
             break;
           default:
             return (
@@ -61,6 +63,7 @@ function QrCodeScannerResult(props) {
                 <p>{msg}</p>
               </>
             );
+            // eslint-disable-next-line
             break;
         }
       })()}

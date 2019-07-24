@@ -69,7 +69,7 @@ function QrCodeScanner(props) {
   });
 
   return (
-    <div>
+    <div class="container">
       <canvas ref={canvasRef} hidden id="canvas" />
       <video ref={videoRef} muted playsInline autoPlay />
     </div>
