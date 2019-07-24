@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/qr-code-generator/static/css/main.02aa14b4.chunk.css",
-    "main.js": "/qr-code-generator/static/js/main.2cfc5e39.chunk.js",
-    "main.js.map": "/qr-code-generator/static/js/main.2cfc5e39.chunk.js.map",
+    "main.js": "/qr-code-generator/static/js/main.53e3ce64.chunk.js",
+    "main.js.map": "/qr-code-generator/static/js/main.53e3ce64.chunk.js.map",
     "runtime~main.js": "/qr-code-generator/static/js/runtime~main.ac0e341b.js",
     "runtime~main.js.map": "/qr-code-generator/static/js/runtime~main.ac0e341b.js.map",
     "static/js/2.d293921f.chunk.js": "/qr-code-generator/static/js/2.d293921f.chunk.js",
     "static/js/2.d293921f.chunk.js.map": "/qr-code-generator/static/js/2.d293921f.chunk.js.map",
     "index.html": "/qr-code-generator/index.html",
-    "precache-manifest.f0a042d9d1bd1b4a7a5b53491e918ca2.js": "/qr-code-generator/precache-manifest.f0a042d9d1bd1b4a7a5b53491e918ca2.js",
+    "precache-manifest.fd55d29dd0d695898b3a300f0319a428.js": "/qr-code-generator/precache-manifest.fd55d29dd0d695898b3a300f0319a428.js",
     "service-worker.js": "/qr-code-generator/service-worker.js",
     "static/css/main.02aa14b4.chunk.css.map": "/qr-code-generator/static/css/main.02aa14b4.chunk.css.map"
   }
