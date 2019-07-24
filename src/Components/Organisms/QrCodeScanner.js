@@ -5,7 +5,7 @@ import "./QrCodeScanner.scss";
 function QrCodeScanner(props) {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
-  const constraints = { audio: false, video: true };
+  const constraints = { audio: false, video: { facingMode: "environment" } };
   let canvas;
 
   function imageData() {
