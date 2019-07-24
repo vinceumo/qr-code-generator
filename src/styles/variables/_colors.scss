@@ -5,10 +5,12 @@ $colors: (
   ),
   dark: (
     base: hsl(0, 0%, 13%),
+    light: hsl(0, 0%, 23%),
     contrast: hsl(0, 0%, 95%)
   ),
   light: (
     base: hsl(0, 0%, 95%),
+    light: hsl(0, 0%, 85%),
     contrast: hsl(0, 0%, 13%)
   )
 );

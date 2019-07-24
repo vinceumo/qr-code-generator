@@ -1,25 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AppFooter from "./Components/Organisms/AppFooter";
 import AppHeader from "./Components/Organisms/AppHeader";
 import AppNav from "./Components/Organisms/AppNav";
 import QrCodeGenerator from "./Components/Organisms/QrCodeGenerator";
 import QrCodeScanner from "./Components/Organisms/QrCodeScanner";
 import QrCodeScannerResult from "./Components/Organisms/QrCodeScannerResult";
+import "./App.scss";
 
 function App() {
   return (
     <Router>
-      <div>
-        <AppHeader />
-        <AppNav />
-        <div className="has-py-3">
-          <switch>
+      <div className="app-wrapper">
+        <div>
+          <AppHeader />
+          <AppNav />
+        </div>
+        <main className="has-py-3">
+          <Switch>
             <Route exact path="/" component={QrCodeScanner} />
             <Route path="/scanner-result" component={QrCodeScannerResult} />
             <Route path="/generator" exact component={QrCodeGenerator} />
-          </switch>
-        </div>
+          </Switch>
+        </main>
         <AppFooter />
       </div>
     </Router>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import jsQR from "jsqr";
+import "./QrCodeScanner.scss";
 
 function QrCodeScanner(props) {
   const videoRef = useRef(null);
@@ -69,7 +70,8 @@ function QrCodeScanner(props) {
   });
 
   return (
-    <div class="container">
+    <div className="container qrcodescanner-container">
+      <h2>Scan a QR code</h2>
       <canvas ref={canvasRef} hidden id="canvas" />
       <video ref={videoRef} muted playsInline autoPlay />
     </div>

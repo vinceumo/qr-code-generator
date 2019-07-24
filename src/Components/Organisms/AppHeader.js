@@ -1,12 +1,13 @@
 import React from "react";
+import "./AppHeader.scss"
 
 function AppHeader() {
   return (
-    <div className="has-bg-dark">
-      <div className="container has-py-1">
+    <header className="has-bg-dark">
+      <div className="container has-py-2">
         <h1 className="has-my-1">QR Code</h1>
       </div>
-    </div>
+    </header>
   );
 }
 

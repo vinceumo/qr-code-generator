@@ -8,12 +8,12 @@ function AppNav() {
       <div className="container">
         <ul className="list-unstyled has-m-0 navigation">
           <li>
-            <NavLink to="/" className="btn" activeClassName="is-light">
+            <NavLink exact to="/" className="btn has-py-1" activeClassName="is-light">
               Scanner
             </NavLink>
           </li>
           <li>
-            <NavLink to="/generator" className="btn" activeClassName="is-light">
+            <NavLink exact to="/generator" className="btn has-py-1" activeClassName="is-light">
               Generator
             </NavLink>
           </li>
