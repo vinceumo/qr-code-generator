@@ -7,6 +7,9 @@ function AppFooter() {
         <p>
           <a href="https://github.com/vinceumo/qr-code-generator">See project on github</a>
         </p>
+        <p>
+          <a href="https://www.vincent-humeau.com">vincent-humeau.com</a>
+        </p>
       </div>
     </footer>
   );
