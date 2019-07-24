@@ -18,9 +18,9 @@ function App() {
         </div>
         <main className="has-py-3">
           <Switch>
-            <Route exact path="/" component={QrCodeScanner} />
-            <Route path="/scanner-result" component={QrCodeScannerResult} />
-            <Route path="/generator" exact component={QrCodeGenerator} />
+            <Route exact path={process.env.PUBLIC_URL + "/"} component={QrCodeScanner} />
+            <Route path={process.env.PUBLIC_URL + "/scanner-result"} component={QrCodeScannerResult} />
+            <Route path={process.env.PUBLIC_URL + "/generator"} exact component={QrCodeGenerator} />
           </Switch>
         </main>
         <AppFooter />

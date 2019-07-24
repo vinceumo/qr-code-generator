@@ -45,7 +45,7 @@ function QrCodeScanner(props) {
       });
   
       if (code) {
-        props.history.push({pathname: '/scanner-result', state: { msg: code.data}});
+        props.history.push({pathname: `${process.env.PUBLIC_URL}/scanner-result`, state: { msg: code.data}});
       }
       requestAnimationFrame(checkFrame);
     }
