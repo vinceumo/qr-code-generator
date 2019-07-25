@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import jsQR from "jsqr";
 import "./QrCodeScanner.scss";
 
@@ -7,6 +7,7 @@ function QrCodeScanner(props) {
   const canvasRef = useRef(null);
   const constraints = { audio: false, video: { facingMode: "environment" } };
   let canvas;
+  const [noCameraAccess, setNoCameraAccess] = useState(false);
 
   function imageData() {
     if(!canvas) {
@@ -52,11 +53,13 @@ function QrCodeScanner(props) {
   }
 
   function successStream(stream) {
+    setNoCameraAccess(false);
     videoRef.current.srcObject = stream;
     requestAnimationFrame(checkFrame);
   }
 
   function failureStream(error) {
+    setNoCameraAccess(true);
     console.log(error);
   }
 
@@ -69,11 +72,27 @@ function QrCodeScanner(props) {
     });
   });
 
+  const renderVideo = function(){
+    if (!noCameraAccess) {
+      return (
+        <>
+          <canvas ref={canvasRef} hidden id="canvas" />
+          <video ref={videoRef} muted playsInline autoPlay />
+        </>
+      );
+    } else {
+      return (
+        <p>
+          Please grant access to your camera and reload the page
+        </p>
+      )
+    }
+  };
+
   return (
     <div className="container qrcodescanner-container">
       <h2>Scan a QR code</h2>
-      <canvas ref={canvasRef} hidden id="canvas" />
-      <video ref={videoRef} muted playsInline autoPlay />
+      {renderVideo()}
     </div>
   );
 }
